@@ -6,3 +6,6 @@ selectors, sibling selector, inner_text, attribute, headless browser, waiting fo
 JavaScript, crawling, pagination, read_html, melt, fuzzy matching, normalization,
 threshold, human in the loop, merge indicator, gap analysis), and make it
 actionable.
+
+
+I had the most troubles with the merging, which ultimately dealt with the type of data, which is somethiing I am constantly reminded I need to be careful of. An outer merge with indicator=True turns the question "who sells what" into one column. Gap analysis is just relabeling that column. So, my bug was that the merge was categorical and therefore the relabeled column kept that and the sort came out wrong. I also found fuzzy matching to be an incredibly useful tool, and reminded me of a shallow version of NLP? Therefore, it is simple, fast, and easy to explain but not entirely accurate and misses the fundamental context matching that NLP does. That is a crucial reason for needing the owner review step. 
