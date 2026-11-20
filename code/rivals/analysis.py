@@ -17,7 +17,7 @@ is checked.
 """
 
 import pandas as pd
-
+from . import settings
 from .settings import (
     ABOVE_ALL,
     ABOVE_AVERAGE,
@@ -144,7 +144,7 @@ def gap_analysis(menus: pd.DataFrame) -> pd.DataFrame:
     )
 
     out = ours.merge(theirs, on=["canonical", "kind"], how="outer", indicator=True)
-    out["where"] = out["_merge"].map(
+    out["where"] = out["_merge"].astype(str).map(
         {"left_only": "only us", "right_only": "only them", "both": "both"}
     )
     out["rivals"] = out["rivals"].fillna(0).astype(int)

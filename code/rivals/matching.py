@@ -25,6 +25,7 @@ import unicodedata
 
 import pandas as pd
 from rapidfuzz import fuzz, process
+from . import settings
 
 from .settings import (
     AUTO_MATCH,
@@ -33,7 +34,6 @@ from .settings import (
     NEW_ITEM,
     OUR_CAFE,
 )
-from code.rivals import settings
 
 
 def normalize_name(name: str) -> str:
