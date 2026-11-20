@@ -28,6 +28,7 @@ from .settings import (
 
 RAW_COLUMNS = ["cafe", "category", "item", "size", "price"]
 
+
 def load_our_menu() -> pd.DataFrame:
     """Salt City Coffee's menu with the scrapers' five columns.  *(Provided.)*"""
     ours = pd.read_csv(OUR_MENU_FILE)
@@ -38,6 +39,7 @@ def load_our_menu() -> pd.DataFrame:
         "size": ours["size"],
         "price": ours["price"],
     })
+
 
 def menus_table(rows: list[dict]) -> pd.DataFrame:
     """Scraped rows as a DataFrame with exactly these columns, in this order:
@@ -56,9 +58,9 @@ def add_kinds(menus: pd.DataFrame, categories: pd.DataFrame) -> pd.DataFrame:
     Every row is kept, in order (a one-sided merge). A category that is not in
     `categories` gets a missing kind. `menus` itself is not changed.
     """
-    kinds = categories[["cafe", "category", "kind"]].drop_duplicates(["cafe", "category"])
+    kinds = categories[["cafe", "category", "kind"]].drop_duplicates(
+        ["cafe", "category"])
     return menus.merge(kinds, on=["cafe", "category"], how="left")
-
 
 
 def build_dataset(rival_rows: list[dict]) -> pd.DataFrame:

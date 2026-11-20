@@ -17,7 +17,6 @@ is checked.
 """
 
 import pandas as pd
-from . import settings
 from .settings import (
     ABOVE_ALL,
     ABOVE_AVERAGE,
